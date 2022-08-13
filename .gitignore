@@ -1,0 +1,14 @@
+/src/main/resources/application.yml
+
+.gradle
+.idea
+build
+out
+
+logfile
+.project
+.settings/
+.classpath
+bin/
+/*.pid
+.DS_Store
