@@ -1,6 +1,5 @@
 package domainDriven.Service;
 
-import domainDriven.domain.AccountDomain.Account;
 import domainDriven.domain.AccountDomain.AccountRepository;
 import domainDriven.domain.ProductDomain.ProductId;
 import domainDriven.domain.ProductDomain.productDto.NewProductRequest;
