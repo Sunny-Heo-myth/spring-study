@@ -13,7 +13,7 @@ public class AlphaConnectionMaker implements ConnectionMaker{
 
     @Override
     public Connection makeConnection() throws ClassNotFoundException, SQLException {
-        Class.forName(properties.getDriver());
-        return DriverManager.getConnection(properties.getResource(), properties.getUser(), properties.getPassword());
+        Class.forName(properties.driver());
+        return DriverManager.getConnection(properties.resource(), properties.user(), properties.password());
     }
 }

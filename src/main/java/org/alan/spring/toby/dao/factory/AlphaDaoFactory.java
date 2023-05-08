@@ -11,11 +11,11 @@ import org.alan.spring.toby.domain.query.UserQuery;
 @NoArgsConstructor
 public class AlphaDaoFactory {
 
-    private ConnectionProperties defaultConnectionProperties = new ConnectionProperties(
-            "com.mysql.jdbc.driver",
-            "jdbc:mysql://localhost/toby",
-            "hsymyth",
-            "gjDHD1992"
+    private final ConnectionProperties defaultConnectionProperties = new ConnectionProperties(
+            "com.mysql.jdbc.driver"
+            , "jdbc:mysql://localhost/toby"
+            , "hsymyth"
+            , "gjDHD1992"
     );
     public UserQuery createUserQuery() {
         return new AlphaUserQueryImpl();
