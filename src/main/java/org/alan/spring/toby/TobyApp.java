@@ -1,9 +1,9 @@
 package org.alan.spring.toby;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.alan.spring.toby.dao.UserDao;
 import org.alan.spring.toby.dao.factory.AlphaDaoFactory;
 import org.alan.spring.toby.domain.User;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.sql.SQLException;
 

@@ -1,10 +1,10 @@
 package org.alan.spring.toby.dao;
 
 import org.alan.spring.toby.connection.ConnectionMaker;
+import org.alan.spring.toby.dao.factory.AlphaDaoFactory;
 import org.alan.spring.toby.domain.User;
 import org.alan.spring.toby.domain.query.AlphaUserQueryImpl;
 import org.alan.spring.toby.domain.query.UserQuery;
-import org.alan.spring.toby.dao.factory.AlphaDaoFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

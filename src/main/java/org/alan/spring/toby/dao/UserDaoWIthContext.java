@@ -1,11 +1,11 @@
 package org.alan.spring.toby.dao;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.alan.spring.toby.connection.ConnectionMaker;
 import org.alan.spring.toby.dao.factory.AlphaDaoFactory;
 import org.alan.spring.toby.domain.User;
 import org.alan.spring.toby.domain.query.UserQuery;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
