@@ -9,7 +9,7 @@ public class ExceptionMain3 {
             exceptionMain3.methodA();
 
         } catch (ExceptionA exceptionA) {
-            System.out.println("ExceptionA caught.");
+            System.out.println("ExceptionA caught by main.");
             String runtimeMessage = "RuntimeMessage is thrown by main method.";
             throw new RuntimeException(runtimeMessage, exceptionA);
         }
@@ -23,7 +23,7 @@ public class ExceptionMain3 {
             System.out.println("Program ended.");
 
         } catch (ExceptionB exceptionB) {
-            System.out.println("ExceptionB caught.");
+            System.out.println("ExceptionB caught ny methodA.");
             String messageA = "ExceptionA is thrown by methodA!";
             throw new ExceptionA(messageA, exceptionB);
         }
@@ -36,9 +36,9 @@ public class ExceptionMain3 {
             methodC();
 
         } catch (ExceptionC exceptionC) {
-            System.out.println("ExceptionC caught.");
+            System.out.println("ExceptionC caught by methodB.");
             String messageB = "ExceptionB is thrown by methodB!";
-            throw new ExceptionB(messageB);
+            throw new ExceptionB(messageB, exceptionC);
         }
     }
 
@@ -47,9 +47,9 @@ public class ExceptionMain3 {
             System.out.println("methodC called.");
             methodNullPointer();
         } catch (NullPointerException nullPointerException) {
-            System.out.println("NullPointerException caught.");
+            System.out.println("NullPointerException caught by methodC.");
             String messageC = "ExceptionC is thrown by methodC!";
-            throw new ExceptionC(messageC);
+            throw new ExceptionC(messageC, nullPointerException);
         }
 
     }
