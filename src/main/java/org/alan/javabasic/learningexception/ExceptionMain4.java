@@ -8,13 +8,16 @@ public class ExceptionMain4 {
             System.out.println("main method called.");
             ExceptionMain4 exceptionMain4 = new ExceptionMain4();
             exceptionMain4.methodA();
+            System.out.println("Program ended.");
+
         } catch (ExceptionA exceptionA) {
             System.out.println("ExceptionA caught by main.");
-            runtimeExceptionMessage = "RuntimeException1 is thrown by main method.";
+            runtimeExceptionMessage = "RuntimeException is thrown by main method.";
             throw new RuntimeException(runtimeExceptionMessage, exceptionA);
+
         } catch (NullPointerException nullPointerException) {
             System.out.println("NullPointerException caught by main.");
-            runtimeExceptionMessage = "RuntimeException2 is thrown by main method.";
+            runtimeExceptionMessage = "RuntimeException is thrown by main method.";
             throw new RuntimeException(runtimeExceptionMessage, nullPointerException);
         }
 
@@ -24,12 +27,16 @@ public class ExceptionMain4 {
         try {
             System.out.println("methodA called.");
             methodB();
-            System.out.println("Program ended.");
 
         } catch (ExceptionB exceptionB) {
             System.out.println("ExceptionB caught by methodA.");
             String exceptionAMessage = "ExceptionA is thrown by methodA!";
             throw new ExceptionA(exceptionAMessage, exceptionB);
+
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException caught by methodA.");
+            String exceptionAMessage = "ExceptionA is thrown by methodA.";
+            throw new ExceptionA(exceptionAMessage, e);
         }
 
     }
