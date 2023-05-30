@@ -11,12 +11,12 @@ public class ExceptionMain4 {
             System.out.println("Program ended.");
 
         } catch (ExceptionA exceptionA) {
-            System.out.println("ExceptionA caught by main.");
+            System.err.println("ExceptionA caught by main.");
             runtimeExceptionMessage = "RuntimeException is thrown by main method.";
             throw new RuntimeException(runtimeExceptionMessage, exceptionA);
 
         } catch (NullPointerException nullPointerException) {
-            System.out.println("NullPointerException caught by main.");
+            System.err.println("NullPointerException caught by main.");
             runtimeExceptionMessage = "RuntimeException is thrown by main method.";
             throw new RuntimeException(runtimeExceptionMessage, nullPointerException);
         }
@@ -29,12 +29,12 @@ public class ExceptionMain4 {
             methodB();
 
         } catch (ExceptionB exceptionB) {
-            System.out.println("ExceptionB caught by methodA.");
+            System.err.println("ExceptionB caught by methodA.");
             String exceptionAMessage = "ExceptionA is thrown by methodA!";
             throw new ExceptionA(exceptionAMessage, exceptionB);
 
         } catch (NullPointerException e) {
-            System.out.println("NullPointerException caught by methodA.");
+            System.err.println("NullPointerException caught by methodA.");
             String exceptionAMessage = "ExceptionA is thrown by methodA.";
             throw new ExceptionA(exceptionAMessage, e);
         }
@@ -47,7 +47,7 @@ public class ExceptionMain4 {
             methodC();
 
         } catch (ExceptionC exceptionC) {
-            System.out.println("ExceptionC caught by methodB.");
+            System.err.println("ExceptionC caught by methodB.");
             String exceptionBMessage = "ExceptionB is thrown by methodB!";
             throw new ExceptionB(exceptionBMessage, exceptionC);
         }
