@@ -27,7 +27,7 @@ public class AlphaDaoFactory {
 
     public UserDao createUserDao() {
         ConnectionMaker connectionMaker = createConnectionMaker();
-        return new UserDao(connectionMaker, createUserQuery());
+        return null;
     }
 
 }

@@ -1,20 +1,25 @@
 package org.alan.spring.toby.dao;
 
-import org.alan.spring.toby.connection.ConnectionMaker;
 import org.alan.spring.toby.domain.query.UserQuery;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class AlphaUserDao extends UserDao{
+/**
+ * How can I connect with db?
+ * Just give connection.
+ */
+public class AlphaUserDao extends UserDao {
 
-    public AlphaUserDao(ConnectionMaker connectionMaker, UserQuery userQuery) {
-        super(connectionMaker, userQuery);
+    public AlphaUserDao(UserQuery userQuery) {
+        super(userQuery);
     }
 
-    public Connection connect(String driver, String url, String user, String password) throws ClassNotFoundException, SQLException {
-        Class.forName(driver);
-        return DriverManager.getConnection(url, user, password);
+    @Override
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection c = DriverManager.getConnection("jdbc:mysql://localhost/toby", "root", "");
+        return c;
     }
 }

@@ -1,8 +1,8 @@
 package org.alan.spring.toby.dao;
 
 import lombok.RequiredArgsConstructor;
-import org.alan.spring.toby.connection.ConnectionMaker;
 import org.alan.spring.toby.domain.User;
+import org.alan.spring.toby.domain.query.AlphaUserQueryImpl;
 import org.alan.spring.toby.domain.query.UserQuery;
 
 import java.sql.Connection;
@@ -10,47 +10,65 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * What kind of interaction are there between db?
+ * Just use connection.
+ */
 @RequiredArgsConstructor
-public class UserDao {
+public abstract class UserDao {
 
-    private final ConnectionMaker connectionMaker;
     private final UserQuery userQuery;
 
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        UserQuery userQuery = new AlphaUserQueryImpl();
+        UserDao dao = new AlphaUserDao(userQuery);
+//        UserDao dao = new BetaUserDao(userQuery);
+
+        User user1 = new User("id", "name", "pw");
+        dao.add(user1);
+        System.out.println(user1.getId() + " add success!");
+
+        User user2 = dao.get("id");
+        System.out.println(user2.getId() + " get success!");
+    }
 
     public void add(User user) throws SQLException, ClassNotFoundException {
-        Connection connection = connectionMaker.makeConnection();
+        Connection c = getConnection();
 
         String INSERT_USER = userQuery.INSERT;
-        PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER);
-        preparedStatement.setString(1, user.getId());
-        preparedStatement.setString(2, user.getName());
-        preparedStatement.setString(3, user.getPassword());
+        PreparedStatement ps = c.prepareStatement(INSERT_USER);
+        ps.setString(1, user.getId());
+        ps.setString(2, user.getName());
+        ps.setString(3, user.getPassword());
 
-        preparedStatement.executeUpdate();
+        ps.executeUpdate();
 
-        preparedStatement.close();
-        connection.close();
+        ps.close();
+        c.close();
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        Connection connection = connectionMaker.makeConnection();
+        Connection c = getConnection();
 
         String GET_USER = userQuery.FIND;
-        PreparedStatement preparedStatement = connection.prepareStatement(GET_USER);
-        preparedStatement.setString(1, id);
+        PreparedStatement ps = c.prepareStatement(GET_USER);
+        ps.setString(1, id);
 
-        ResultSet resultSet = preparedStatement.executeQuery();
-        resultSet.next();
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+
         User user = new User();
-        user.setId(resultSet.getString("id"));
-        user.setName(resultSet.getString("name"));
-        user.setPassword(resultSet.getString("password"));
+        user.setId(rs.getString("id"));
+        user.setName(rs.getString("name"));
+        user.setPassword(rs.getString("password"));
 
-        resultSet.close();
-        preparedStatement.close();
-        connection.close();
+        rs.close();
+        ps.close();
+        c.close();
 
         return user;
     }
+
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
 
 }
