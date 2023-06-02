@@ -1,4 +1,4 @@
-package org.alan.javabasic.testing;
+package org.alan.javabasic.calculator;
 
 public class Calculator {
 

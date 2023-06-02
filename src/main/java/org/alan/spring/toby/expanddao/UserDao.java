@@ -1,8 +1,7 @@
-package org.alan.spring.toby.dao;
+package org.alan.spring.toby.expanddao;
 
 import lombok.RequiredArgsConstructor;
 import org.alan.spring.toby.domain.User;
-import org.alan.spring.toby.domain.query.AlphaUserQueryImpl;
 import org.alan.spring.toby.domain.query.UserQuery;
 
 import java.sql.Connection;
@@ -11,26 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * What kind of interaction are there between db?
- * Just use connection.
+ * Server(context) provides general operation with interface.
  */
 @RequiredArgsConstructor
-public abstract class UserDao {
+public class UserDao {
 
+    private final ConnectionMaker connectionMaker;
     private final UserQuery userQuery;
-
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserQuery userQuery = new AlphaUserQueryImpl();
-        UserDao dao = new AlphaUserDao(userQuery);
-//        UserDao dao = new BetaUserDao(userQuery);
-
-        User user1 = new User("id", "name", "pw");
-        dao.add(user1);
-        System.out.println(user1.getId() + " add success!");
-
-        User user2 = dao.get("id");
-        System.out.println(user2.getId() + " get success!");
-    }
 
     public void add(User user) throws SQLException, ClassNotFoundException {
         Connection c = getConnection();
@@ -69,6 +55,7 @@ public abstract class UserDao {
         return user;
     }
 
-    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
-
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
+        return connectionMaker.makeConnection();
+    }
 }
