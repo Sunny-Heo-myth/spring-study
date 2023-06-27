@@ -1,11 +1,11 @@
 package org.alan.spring.toby.chapterone.config;
 
+import org.alan.spring.toby.chapterone.connection.AlphaConnectionMaker;
+import org.alan.spring.toby.chapterone.connection.BetaConnectionMaker;
+import org.alan.spring.toby.chapterone.connection.ConnectionMaker;
+import org.alan.spring.toby.chapterone.connection.properties.ConnectionProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import toby.connection.AlphaConnectionMaker;
-import toby.connection.BetaConnectionMaker;
-import toby.connection.ConnectionMaker;
-import toby.connection.properties.ConnectionProperties;
 
 @Configuration
 public class ConnectionMakerConfig {

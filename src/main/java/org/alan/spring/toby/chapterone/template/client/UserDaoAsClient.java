@@ -1,9 +1,9 @@
 package org.alan.spring.toby.chapterone.template.client;
 
-import toby.connection.ConnectionMaker;
-import toby.exampleDomain.User;
-import toby.exampleDomain.query.UserQuery;
-import toby.template.context.JdbcContext;
+import org.alan.spring.toby.chapterone.connection.ConnectionMaker;
+import org.alan.spring.toby.chapterone.exampleDomain.User;
+import org.alan.spring.toby.chapterone.exampleDomain.query.UserQuery;
+import org.alan.spring.toby.chapterone.template.context.JdbcContext;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

@@ -1,7 +1,7 @@
 package org.alan.spring.toby.chapterone.template.stretgy;
 
 import lombok.RequiredArgsConstructor;
-import toby.exampleDomain.User;
+import org.alan.spring.toby.chapterone.exampleDomain.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

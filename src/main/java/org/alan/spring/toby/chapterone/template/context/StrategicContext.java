@@ -1,11 +1,11 @@
 package org.alan.spring.toby.chapterone.template.context;
 
-import toby.connection.ConnectionMaker;
-import toby.exampleDomain.User;
-import toby.exampleDomain.query.UserQuery;
-import toby.template.stretgy.DeleteAllStatementStrategy;
-import toby.template.stretgy.GetStatementStrategy;
-import toby.template.stretgy.InsertUserDaoStrategy;
+import org.alan.spring.toby.chapterone.connection.ConnectionMaker;
+import org.alan.spring.toby.chapterone.exampleDomain.User;
+import org.alan.spring.toby.chapterone.exampleDomain.query.UserQuery;
+import org.alan.spring.toby.chapterone.template.stretgy.DeleteAllStatementStrategy;
+import org.alan.spring.toby.chapterone.template.stretgy.GetStatementStrategy;
+import org.alan.spring.toby.chapterone.template.stretgy.InsertUserDaoStrategy;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

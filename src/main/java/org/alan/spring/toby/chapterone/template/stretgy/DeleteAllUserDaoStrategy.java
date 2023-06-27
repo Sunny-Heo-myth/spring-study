@@ -1,6 +1,6 @@
 package org.alan.spring.toby.chapterone.template.stretgy;
 
-import toby.exampleDomain.query.UserQuery;
+import org.alan.spring.toby.chapterone.exampleDomain.query.UserQuery;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

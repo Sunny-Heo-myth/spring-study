@@ -2,10 +2,10 @@ package org.alan.spring.toby.chapterone.dao;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import toby.connection.ConnectionMaker;
-import toby.dao.factory.AlphaDaoFactory;
-import toby.exampleDomain.User;
-import toby.exampleDomain.query.UserQuery;
+import org.alan.spring.toby.chapterone.connection.ConnectionMaker;
+import org.alan.spring.toby.chapterone.dao.factory.AlphaDaoFactory;
+import org.alan.spring.toby.chapterone.exampleDomain.User;
+import org.alan.spring.toby.chapterone.exampleDomain.query.UserQuery;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

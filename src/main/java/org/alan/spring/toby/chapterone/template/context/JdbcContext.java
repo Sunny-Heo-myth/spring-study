@@ -1,7 +1,7 @@
 package org.alan.spring.toby.chapterone.template.context;
 
-import toby.connection.ConnectionMaker;
-import toby.template.stretgy.StatementStrategy;
+import org.alan.spring.toby.chapterone.connection.ConnectionMaker;
+import org.alan.spring.toby.chapterone.template.stretgy.StatementStrategy;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

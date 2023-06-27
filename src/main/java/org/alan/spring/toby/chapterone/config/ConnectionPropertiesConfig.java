@@ -2,7 +2,7 @@ package org.alan.spring.toby.chapterone.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import toby.connection.properties.ConnectionProperties;
+import org.alan.spring.toby.chapterone.connection.properties.ConnectionProperties;
 
 @Configuration
 public class ConnectionPropertiesConfig {

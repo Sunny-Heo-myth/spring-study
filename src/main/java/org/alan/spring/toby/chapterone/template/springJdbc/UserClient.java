@@ -1,7 +1,7 @@
 package org.alan.spring.toby.chapterone.template.springJdbc;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import toby.exampleDomain.User;
+import org.alan.spring.toby.chapterone.exampleDomain.User;
 
 public class UserClient {
     private final JdbcTemplate template;

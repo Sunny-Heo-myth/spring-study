@@ -1,6 +1,6 @@
 package org.alan.spring.toby.chapterone.connection;
 
-import toby.connection.properties.ConnectionProperties;
+import org.alan.spring.toby.chapterone.connection.properties.ConnectionProperties;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
