@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 @DataJpaTest
-public class AbcRepositoryTest {
+public class StudentRepositoryTest {
 
     private final AbcRepository abcRepository;
 
     @Autowired
-    public AbcRepositoryTest(AbcRepository abcRepository) {
+    public StudentRepositoryTest(AbcRepository abcRepository) {
         this.abcRepository = abcRepository;
     }
 

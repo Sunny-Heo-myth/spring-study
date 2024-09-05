@@ -1,2 +1,30 @@
 server:
-  port: 8888
+  port: 7777
+  max-http-request-header-size: 16KB
+
+spring:
+  application:
+    name: spring
+  datasource:
+    url: jdbc:postgresql://localhost/ecp
+    username: ecpuser
+    password: ecpuser
+    hikari:
+      connection-timeout: 3_000 # 3s
+      leak-detection-threshold: 10_000 # 10s
+      max-lifetime: 600_000 # 10min
+      minimum-idle: 1
+      maximum-pool-size: 30
+  jpa:
+    open-in-view: false
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.dialect: net.g1project.ecp.common.jpa.dialect.EcpPostgreSQLJsonDialect
+      use-jdbc-metadata-defaults: false
+      use-get-generated-keys: true
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.StdDateFormat
+    time-zone: "Asia/Seoul"
+

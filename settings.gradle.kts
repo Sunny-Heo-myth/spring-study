@@ -1,2 +1,2 @@
-rootProject.name = "spring-with-toby"
+rootProject.name = "spring-study"
 

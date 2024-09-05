@@ -24,7 +24,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     // database & jpa
-    runtimeOnly("org.postgresql:postgresql")
     implementation("mysql:mysql-connector-java")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.hibernate.validator:hibernate-validator")
