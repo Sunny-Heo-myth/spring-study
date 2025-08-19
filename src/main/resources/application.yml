@@ -4,27 +4,48 @@ server:
 
 spring:
   application:
-    name: spring
+    name: toby-study
+
+  mvc:
+    servlet:
+      load-on-startup: 1
+
   datasource:
-    url: jdbc:postgresql://localhost/ecp
-    username: ecpuser
-    password: ecpuser
+    url: jdbc:postgresql://localhost:5432/postgres
+    username:
+    password:
     hikari:
       connection-timeout: 3_000 # 3s
       leak-detection-threshold: 10_000 # 10s
       max-lifetime: 600_000 # 10min
       minimum-idle: 1
       maximum-pool-size: 30
+      idle-timeout: 300_000
+
   jpa:
     open-in-view: false
     show-sql: false
     hibernate:
       ddl-auto: none
-    properties:
-      hibernate.dialect: net.g1project.ecp.common.jpa.dialect.EcpPostgreSQLJsonDialect
-      use-jdbc-metadata-defaults: false
-      use-get-generated-keys: true
+
   jackson:
     date-format: com.fasterxml.jackson.databind.util.StdDateFormat
     time-zone: "Asia/Seoul"
 
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowType: TIME_BASED
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 10
+        slowCallRateThreshold: 100
+        slowCallDurationThreshold: 60000
+        failureRateThreshold: 50
+        permittedNumberOfCallsInHalfOpenState: 10
+        waitDurationInOpenState: 10s
+    instances:
+      circuit-cache:
+        baseConfig: default
+        slowCallDurationThreshold: 10000
